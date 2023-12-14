@@ -1,0 +1,171 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+/* 
+body {
+    background-image: url(/img/pic.jpg);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+} */
+
+
+.container {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.bigCards {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    border: 2px solid green;
+    width: 100%;
+    padding: 50px;
+}
+
+.toDo,
+.inProgress,
+.stuck,
+.done {
+    border: 2px solid red;
+    padding: 20px 35px 20px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 4;
+}
+
+.todoList,
+.inProgressList,
+.stuckList,
+.doneList {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    z-index: 0;
+    /* border: 5px solid brown; */
+    /* gap: 15px; */
+}
+
+.toDoCards {
+    border: 3px solid green;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+.stuckCards {
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+.hiddenAdd,
+.hiddenEdit {
+    /* display: none; */
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    transform: translateX(-50%);
+    border: 2px solid red;
+}
+
+.done-list,
+.in-progress-list {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.draggList {
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    /* display: flex; */
+    /* flex-direction: column; */
+
+}
+
+.done-icon {
+    position: relative;
+    /* border: 22px solid white; */
+    width: fit-content;
+}
+
+.inputCheck {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.fa-circle-check {
+    font-size: 20px;
+}
+
+.card {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 5px 10px 5px 10px;
+
+}
+
+.card>h5 {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.card>p {
+    text-align: center;
+    border-radius: 10px;
+
+    border: 2px solid black;
+}
+
+/* asuu */
+/* .done-icon:first-child {
+    border: 2px solid green;
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+
+.hidden {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    /* transform: translateX(50%); */
+    transform: translateX(-50%);
+    z-index: 5;
+    background-color: aqua;
+    width: 100%;
+    height: 100%;
+    /* display: hidden; */
+}

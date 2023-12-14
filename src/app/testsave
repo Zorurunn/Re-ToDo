@@ -1,0 +1,199 @@
+"use client"
+import Image from 'next/image'
+import styles from './page.module.css'
+import { useState } from 'react';
+
+import myStyle from "./home.module.css"
+
+
+export default function Home() {
+
+    const [count, setCount] = useState(2);
+    const [data, setData] = useState([{ id: 0, title: "firstRender" }])
+    console.log(data);
+    console.log(`sss`);
+    // setData();
+    return (
+        <div className={myStyle.container}>
+            <Counter
+                className={myStyle.counter}
+                number={count}
+
+                addCount={() => {
+                    setCount(count + 1);
+                }}
+
+                minCount={() => {
+                    setCount(count - 1);
+                }}
+
+                resetCount={() => {
+                    setCount(0);
+                }}
+
+            > </Counter>
+
+            <InputTodo
+                getValue={(event) => {
+                    event.preventDefault();
+                    console.log(`added`);
+                    const title = event.target.firstChild.value;
+                    setData([...data, { id: data.length + 1, title }])
+                    // console.log(data); asuu!!!!! set hiigdeegui uy ni haragdana yagaad 
+                }}
+
+            ></InputTodo>
+        </div>
+    );
+}
+
+
+
+export const Counter = (props) => {
+    return (
+        <div className={myStyle.counter}>
+            <h3>{props.number}</h3>
+            <button onClick={props.addCount}>add</button>
+            <button onClick={props.minCount}>minus</button>
+            <button onClick={props.resetCount}>reset</button>
+        </div>
+    )
+}
+
+
+export const InputTodo = (props) => {
+    return (
+        <>
+            <form className='inputForm' onSubmit={props.getValue}>
+                <input type="text" name='inputText'></input>
+                <button type='submit'>Add</button>
+            </form>
+        </>
+    )
+}
+
+const GetValue = (event) => {
+    event.preventDefault();
+
+
+}
+
+
+
+export const MainPage = (props) => {
+    return (
+        <div className={mainPageStyle.container}>
+            <input className={mainPageStyle.searching} type="text"></input>
+            <div className={mainPageStyle.bigCards}>
+
+                <div className={mainPageStyle.toDo}>
+                    <h1>TODO</h1>
+                    <div className={mainPageStyle.todoList}></div>
+                    <button className={mainPageStyle.addNewTask}>Add Task</button>
+                </div>
+
+                <div className={mainPageStyle.hiddenAdd}>
+                    <h1>TODO-List</h1>
+                    <form className={mainPageStyle.addForm}>
+                        title: <input id="title" type="text" />
+                        description: <input id="description" type="text"></input>
+
+                        <label for="status">Status:</label>
+                        <select name="statusList">
+                            <option value="toDo">To Do</option>
+                            <option value="inProgress">In Progress</option>
+                            <option value="stuck">Stuck</option>
+                            <option value="done">Done</option>
+                        </select>
+
+                        <label for="priority">Priority:</label>
+                        <select name="priorityList">
+                            <option value="2">high</option>
+                            <option value="1">medium</option>
+                            <option value="0">low</option>
+                        </select>
+
+
+                        <button className={mainPageStyle.task_submit} type="submit" onSubmit={props.addTask}> Add Task</button>
+                    </form>
+                </div>
+
+
+                <div className={mainPageStyle.inProgress}>
+                    <h1>IN PROGRESS</h1>
+                    <div className={mainPageStyle.inProgressList}></div>
+                    <button className={mainPageStyle.addNewTask}>Add Task</button>
+                </div>
+
+                <div className={mainPageStyle.stuck}>
+                    <h1>STUCK</h1>
+                    <div className={mainPageStyle.stuckList}></div>
+                    <button className={mainPageStyle.addNewTask}>Add Task</button>
+                </div>
+
+
+                <div className={mainPageStyle.done}>
+                    <h1>DONE</h1>
+                    <div className={mainPageStyle.doneList}></div>
+                    <button className={mainPageStyle.addNewTask}>Add Task</button>
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+
+
+
+
+
+
+// setData();
+
+
+
+const Popup = () => {
+    return (
+        <div>
+            Hello
+        </div>
+    )
+}
+
+
+// export const MainPage = (props) => {
+
+//     let [isOpen, isOpenSet] = useState(false);
+
+
+//     const toggle = () => {
+//         isOpenSet(isOpen = !isOpen);
+//     }
+
+
+
+//     return (
+//         <>
+//             <div>
+//                 ToDo
+//                 <div className={mainPageStyle.todoList}>
+
+//                 </div>
+//                 {isOpen && <InputTodo />}
+//                 <button onClick={toggle}>AddTaskDesu</button>
+//             </div>
+
+//         </>
+//     )
+// }
+
+{
+    data.filter((element) => {
+        return (element.title.includes(`e`))
+    }).map((item, index) => {
+        return (
+            <Card id={index} key={index} title={item.title} />
+        );
+    })
+}
