@@ -8,10 +8,11 @@ export const AddTaskButton = (props) => {
   return (
     <>
       <button
-        className={mainPageStyle.addNewTask}
-        onClick={() => {
-          props.setHidden((prev) => !prev);
-        }}
+        className="w-full border-[2px] rounded-[5px]"
+        type="submit"
+        // onClick={() => {
+        //   props.setHidden((prev) => !prev);
+        // }}
       >
         Add Task
       </button>

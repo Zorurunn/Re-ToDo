@@ -4,11 +4,36 @@
     overflow: hidden;
     max-width: 1400px;
     padding: 0px 16px 0px 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: flex-start; */
     margin: auto;
+    margin-top: 100px;
 
+}
+
+.allContent{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.headBar{
+    width: 95%;
+    /* border: 2px solid gray; */
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headText{
+    font-size: 40px;
+    font-weight: 800;
+    color: green;
+}
+.searchBar{
+    display: flex;
+    gap: 10px;
 }
 .allStatus{
     width: 95%;
@@ -23,6 +48,15 @@
     gap: 10px;
 }
 
+.header{
+    width: 100%;
+    border: 2px solid gray;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .card{
     background-color: gray;
     border: 2px solid gray;
@@ -33,14 +67,10 @@
     gap: 10px;
 }
 
-/* .card>h1::before{
-    content: 'box';
-} */
 .card>h1{
     display: flex;
-    /* flex-direction: column; */
     gap: 5px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     color: darkgreen;
@@ -80,7 +110,7 @@
 .addForm{
     display: grid;
     /* grid-template-columns: repeat(2, 1fr); */
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 3fr;
     gap: 10px;
 }
 
@@ -88,7 +118,7 @@
     width: 100%;
     height: 30px;
 }
-#description{
+.description{
     height: 200px;
     overflow-wrap: break-word;
     width: 100%;

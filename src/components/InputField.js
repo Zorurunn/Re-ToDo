@@ -60,27 +60,108 @@ export const InputField = (props) => {
   return (
     <>
       <div className={styles.hidden}>
-        <h1>TODO-List</h1>
-        <form className={mainPageStyle.addForm} onSubmit={props.getValue}>
-          title: <input id="title" type="text" />
-          description: <input id="description" type="text"></input>
-          <label for="status">Status:</label>
+        <form className={styles.addForm} onSubmit={props.getValue}>
+          {/* title: <input id="title" type="text" /> */}
+          <h1 className="text-[60px] bg-green-500 rounded-[5px] col-span-2 ">
+            Add New
+          </h1>
+
+          <div className="bg-green-500 rounded-[5px] pl-[10px]">title:</div>
+          <div>
+            <input id="title" type="text" />
+          </div>
+
+          <div className="bg-green-500 rounded-[5px] pl-[10px] h-fit">
+            description:
+          </div>
+          <div>
+            <textarea
+              id="description"
+              className={styles.description}
+            ></textarea>
+          </div>
+          <div className="bg-green-500 rounded-[5px] pl-[10px]">
+            <label htmlFor="status">Status:</label>
+          </div>
+          <div>
+            <select name="statusList">
+              <option value="toDo">To Do</option>
+              <option value="inProgress">In Progress</option>
+              <option value="stuck">Stuck</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+
+          <div className="bg-green-500 rounded-[5px] pl-[10px]">
+            <label htmlFor="priority">Priority:</label>
+          </div>
+          <div>
+            <select name="priorityList">
+              <option value="2">high</option>
+              <option value="1">medium</option>
+              <option value="0">low</option>
+            </select>
+          </div>
+          {/* description: <input id="description" type="text"></input> */}
+          {/* <label htmlFor="status">Status:</label>
           <select name="statusList">
             <option value="toDo">To Do</option>
             <option value="inProgress">In Progress</option>
             <option value="stuck">Stuck</option>
             <option value="done">Done</option>
           </select>
-          <label for="priority">Priority:</label>
+          <label htmlFor="priority">Priority:</label>
           <select name="priorityList">
             <option value="2">high</option>
             <option value="1">medium</option>
             <option value="0">low</option>
-          </select>
+          </select> */}
           {/* <button onClick={props.setHidden(false)}>aaaaa</button> */}
-          <AddTaskButton setHidden={props.setHidden}></AddTaskButton>
+          <div className="col-span-2">
+            <AddTaskButton></AddTaskButton>
+          </div>
         </form>
       </div>
     </>
   );
 };
+
+{
+  /* <h1>TODO-List</h1>
+          <form className={styles.addForm} onSubmit={props.getValue}>
+            <div>title:</div>
+            <div>
+              <input id="title" type="text" />
+            </div>
+
+            <div>description:</div>
+            <div>
+              <textarea id={styles.description}></textarea>
+            </div>
+
+            <div>
+              <label htmlFor="status">Status:</label>
+            </div>
+            <div>
+              <select name="statusList">
+                <option value="toDo">To Do</option>
+                <option value="inProgress">In Progress</option>
+                <option value="stuck">Stuck</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="priority">Priority:</label>
+            </div>
+            <div>
+              <select name="priorityList">
+                <option value="2">high</option>
+                <option value="1">medium</option>
+                <option value="0">low</option>
+              </select>
+            </div>
+
+            <AddTaskButton set={props.set} />
+          </form> */
+}
