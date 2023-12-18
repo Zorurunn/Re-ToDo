@@ -102,23 +102,13 @@ export const InputField = (props) => {
               <option value="0">low</option>
             </select>
           </div>
-          {/* description: <input id="description" type="text"></input> */}
-          {/* <label htmlFor="status">Status:</label>
-          <select name="statusList">
-            <option value="toDo">To Do</option>
-            <option value="inProgress">In Progress</option>
-            <option value="stuck">Stuck</option>
-            <option value="done">Done</option>
-          </select>
-          <label htmlFor="priority">Priority:</label>
-          <select name="priorityList">
-            <option value="2">high</option>
-            <option value="1">medium</option>
-            <option value="0">low</option>
-          </select> */}
-          {/* <button onClick={props.setHidden(false)}>aaaaa</button> */}
           <div className="col-span-2">
-            <AddTaskButton></AddTaskButton>
+            <button
+              className="bg-green-500  rounded-[5px] w-full"
+              type="submit"
+            >
+              Add
+            </button>
           </div>
         </form>
       </div>

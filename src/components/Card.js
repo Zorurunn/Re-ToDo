@@ -10,7 +10,12 @@ export const Card = ({ id, title, description, priority }) => {
         {title}
       </h1>
       <p> {description}</p>
-      <div>{labels[priority]}</div>
+      <div className="flex justify-between ">
+        <div></div>
+        <div className="bg-gray-200 rounded-[5px] pl-[10px] pr-[10px]">
+          {labels[priority]}
+        </div>
+      </div>
       {/* <div>{id}</div> */}
     </div>
   );

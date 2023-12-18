@@ -9,11 +9,13 @@ import styles from "@/styles/mainStyle.module.css";
 import { AddTaskButton } from "./AddTaskButton";
 import { InputField } from "./InputField";
 import { HeadBar } from "./HeadBar";
+import { AddNewButton } from "./AddNewButton";
 
 const DataContext = createContext();
 
 export function ToDoApp() {
   const [searchVal, setSearchVal] = useState("");
+  const [isHidden, setIsHidden] = useState(true);
 
   const [data, setData] = useState([
     {
@@ -59,8 +61,6 @@ export function ToDoApp() {
     },
   ]);
 
-  const [hidden, setHidden] = useState(true);
-
   const visibleTodos = useMemo(() => {
     console.log(`filtering....`);
     return (
@@ -71,7 +71,6 @@ export function ToDoApp() {
             toDoItems={data.filter((item) => {
               return item.title.includes(searchVal) && item.status === "toDo";
             })}
-            setHidden={setHidden}
           />
 
           <InProgressCards
@@ -80,21 +79,18 @@ export function ToDoApp() {
                 item.title.includes(searchVal) && item.status === "inProgress"
               );
             })}
-            setHidden={setHidden}
           />
 
           <StuckCards
             toDoItems={data.filter((item) => {
               return item.title.includes(searchVal) && item.status === "stuck";
             })}
-            setHidden={setHidden}
           />
 
           <DoneCards
             toDoItems={data.filter((item) => {
               return item.title.includes(searchVal) && item.status === "done";
             })}
-            setHidden={setHidden}
           />
         </div>
       </div>
@@ -108,11 +104,12 @@ export function ToDoApp() {
       value={{
         setData,
         setSearchVal,
+        setIsHidden,
       }}
     >
       <Container>
         {visibleTodos}
-        <div style={{ display: hidden ? "none" : "block" }}>
+        <div style={{ display: isHidden ? "none" : "block" }}>
           <InputField
             getValue={(event) => {
               // if(event)
@@ -122,7 +119,10 @@ export function ToDoApp() {
               const description = event.target.elements.description.value;
               const status = event.target.elements.statusList.value;
               const priority = event.target.elements.priorityList.value;
-              if (title === "" || description == "") return;
+              if (title === "" || description == "") {
+                alert("空白を入力してください");
+                return;
+              }
 
               setData(() => {
                 const x = [
@@ -136,14 +136,13 @@ export function ToDoApp() {
 
                 return x.map((item, index) => ({ ...item, id: index }));
               });
-
-              setHidden(true);
+              setIsHidden(true);
             }}
-            setHidden={setHidden}
           />
         </div>
 
         {/* <AddTaskButton /> */}
+        {/* {<AddNewButton />} */}
       </Container>
     </DataContext.Provider>
   );
@@ -197,7 +196,6 @@ getValue={(event) => {
                 id: index,
               }));
             });
-          }}
-          setHidden={setHidden}
+          }
         /> */
 }
