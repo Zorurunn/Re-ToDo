@@ -120,7 +120,7 @@ export function ToDoApp() {
               const status = event.target.elements.statusList.value;
               const priority = event.target.elements.priorityList.value;
               if (title === "" || description == "") {
-                alert("空白を入力してください");
+                alert("空白を入力しcsてください");
                 return;
               }
 
